@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Results Management System</title>
+
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+        
+        <div class="sidebar-header">
+            <div class="logo">SH</div>
+
+            <div>
+                <h2>SAM HIGH</h2>
+                <p>Management System</p>
+            </div>
+        </div>
+
+
+        <nav class="sidebar-nav">
+
+            <a href="index.html" class="nav-link active">
+                <span>▦</span>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="students.html" class="nav-link">
+                <span>👨‍🎓</span>
+                <span>Students</span>
+            </a>
+
+            <a href="subjects.html" class="nav-link">
+                <span>📚</span>
+                <span>Subjects</span>
+            </a>
+
+            <a href="results.html" class="nav-link">
+                <span>📝</span>
+                <span>Results</span>
+            </a>
+
+            <a href="reports.html" class="nav-link">
+                <span>📊</span>
+                <span>Reports</span>
+            </a>
+
+            <div class="nav-divider"></div>
+
+            <a href="settings.html" class="nav-link">
+                <span>⚙</span>
+                <span>Settings</span>
+            </a>
+
+            <a href="#" class="nav-link logout" onclick="logout()">
+                <span>↪</span>
+                <span>Logout</span>
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-footer">
+            <p>Samuel High</p>
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN AREA -->
+    <div class="main-container">
+
+
+        <!-- TOP BAR -->
+        <header class="topbar">
+
+            <button class="menu-btn" id="menuBtn">
+                ☰
+            </button>
+
+
+            <div class="page-title">
+                <h1>Dashboard</h1>
+                <p>Overview of your student results system</p>
+            </div>
+
+
+            <div class="user-area">
+
+                <div class="user-profile">
+
+                    <span id="loggedInUser">
+                        Admin
+                    </span>
+
+                    <div class="profile-icon" id="profileIcon">
+                        A
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- MAIN CONTENT -->
+        <main class="content">
+
+
+            <!-- WELCOME -->
+            <section class="welcome">
+
+                <div>
+                    <p class="welcome-label">WELCOME BACK</p>
+
+                    <h2>
+                        Hello, Samuel 👋
+                    </h2>
+
+                    <p>
+                        Here's what's happening with your
+                        student results system today.
+                    </p>
+                </div>
+
+
+                <a href="students.html" class="primary-btn" style="text-decoration: none;">
+                    + Add Student
+                </a>
+
+            </section>
+
+
+            <!-- STATISTICS -->
+            <section class="stats-grid">
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon students">
+                        👨‍🎓
+                    </div>
+
+                    <div>
+                        <p>Total Students</p>
+                        <h3>248</h3>
+                        <span class="positive">
+                            ↑ 12% this month
+                        </span>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon subjects">
+                        📚
+                    </div>
+
+                    <div>
+                        <p>Total Subjects</p>
+                        <h3>18</h3>
+                        <span>
+                            Active subjects
+                        </span>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon results">
+                        📝
+                    </div>
+
+                    <div>
+                        <p>Results Entered</p>
+                        <h3>1,426</h3>
+                        <span class="positive">
+                            ↑ 8% this month
+                        </span>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon average">
+                        📈
+                    </div>
+
+                    <div>
+                        <p>Average Performance</p>
+                        <h3>72.4%</h3>
+                        <span class="positive">
+                            ↑ 3.2% this term
+                        </span>
+                    </div>
+
+                </div>
+
+
+            </section>
+
+
+            <!-- QUICK ACTIONS -->
+            <section class="section-block">
+
+                <div class="section-heading">
+
+                    <div>
+                        <h2 style="color: white;">Quick Actions</h2>
+                        <p>Frequently used functions</p>
+                    </div>
+
+                </div>
+
+
+                <div class="actions-grid">
+
+                    <button class="action-card">
+                        <span class="action-icon">👨‍🎓</span>
+                        <strong>Add Student</strong>
+                        <small>Register a new student</small>
+                    </button>
+
+
+                    <button class="action-card">
+                        <span class="action-icon">📝</span>
+                        <strong>Enter Results</strong>
+                        <small>Record student marks</small>
+                    </button>
+
+
+                    <button class="action-card">
+                        <span class="action-icon">📊</span>
+                        <strong>Generate Report</strong>
+                        <small>Create performance report</small>
+                    </button>
+
+
+                    <button class="action-card">
+                        <span class="action-icon">📚</span>
+                        <strong>Manage Subjects</strong>
+                        <small>Add or edit subjects</small>
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <!-- RECENT STUDENTS -->
+            <section class="section-block">
+
+                <div class="section-heading">
+
+                    <div>
+                        <h2 style="color: white;">Recent Students</h2>
+                        <p style="color: white;">Recently registered students</p>
+                    </div>
+
+                    <a href="#" class="view-all">
+                        View All →
+                    </a>
+
+                </div>
+
+
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Student</th>
+                                <th>Student ID</th>
+                                <th>Class</th>
+                                <th>Average</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="student-info">
+                                        <div class="student-avatar">
+                                            TM
+                                        </div>
+
+                                        <div>
+                                            <strong>
+                                                Tendai Moyo
+                                            </strong>
+
+                                            <small>
+                                                tendai@example.com
+                                            </small>
+                                        </div>
+                                    </div>
+                                </td>
+
+                                <td>STU001</td>
+
+                                <td>Form 4A</td>
+
+                                <td>78.5%</td>
+
+                                <td>
+                                    <span class="status active">
+                                        Active
+                                    </span>
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>
+                                    <div class="student-info">
+
+                                        <div class="student-avatar">
+                                            CN
+                                        </div>
+
+                                        <div>
+                                            <strong>
+                                                Chipo Ncube
+                                            </strong>
+
+                                            <small>
+                                                chipo@example.com
+                                            </small>
+                                        </div>
+
+                                    </div>
+                                </td>
+
+                                <td>STU002</td>
+
+                                <td>Form 4B</td>
+
+                                <td>82.1%</td>
+
+                                <td>
+                                    <span class="status active">
+                                        Active
+                                    </span>
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>
+                                    <div class="student-info">
+
+                                        <div class="student-avatar">
+                                            KM
+                                        </div>
+
+                                        <div>
+                                            <strong>
+                                                Kudzai Moyo
+                                            </strong>
+
+                                            <small>
+                                                kudzai@example.com
+                                            </small>
+                                        </div>
+
+                                    </div>
+                                </td>
+
+                                <td>STU003</td>
+
+                                <td>Form 3A</td>
+
+                                <td>69.8%</td>
+
+                                <td>
+                                    <span class="status active">
+                                        Active
+                                    </span>
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>
+                                    <div class="student-info">
+
+                                        <div class="student-avatar">
+                                            RM
+                                        </div>
+
+                                        <div>
+                                            <strong>
+                                                Rudo Mlambo
+                                            </strong>
+
+                                            <small>
+                                                rudo@example.com
+                                            </small>
+
+                                        </div>
+
+                                    </div>
+                                </td>
+
+                                <td>STU004</td>
+
+                                <td>Form 4A</td>
+
+                                <td>91.2%</td>
+
+                                <td>
+                                    <span class="status active">
+                                        Active
+                                    </span>
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+
+        </main>
+
+
+        <!-- FOOTER -->
+        <footer class="footer">
+
+            <p style="color: white;">
+                © 2026 Samuel High. All rights reserved.
+            </p>
+        </footer>
+
+    </div>
+
+
+    <script src="js/dashboard.js"></script>
+    <script src="js/students.js"></script>
+    <script src="js/subjects.js"></script>
+    <script src="js/reports.js"></script>
+
+</body>
+
+</html>

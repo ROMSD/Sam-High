@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Reports</title>
+
+    <link rel="stylesheet" href="css/reports.css">
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+<!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+        
+        <div class="sidebar-header">
+            <div class="logo">SH</div>
+
+            <div>
+                <h2>Reports</h2>
+                <p>Management System</p>
+            </div>
+        </div>
+
+
+        <nav class="sidebar-nav">
+
+            <a href="index.html" class="nav-link">
+                <span>▦</span>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="students.html" class="nav-link">
+                <span>👨‍🎓</span>
+                <span>Students</span>
+            </a>
+
+            <a href="subjects.html" class="nav-link">
+                <span>📚</span>
+                <span>Subjects</span>
+            </a>
+
+            <a href="results.html" class="nav-link">
+                <span>📝</span>
+                <span>Results</span>
+            </a>
+
+            <a href="reports.html" class="nav-link active">
+                <span>📊</span>
+                <span>Reports</span>
+            </a>
+
+            <div class="nav-divider"></div>
+
+            <a href="settings.html" class="nav-link">
+                <span>⚙</span>
+                <span>Settings</span>
+            </a>
+
+            <a href="#" class="nav-link logout" onclick="logout()">
+                <span>↪</span>
+                <span>Logout</span>
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-footer">
+            <p>Student Results System</p>
+        </div>
+
+    </aside>
+
+    <!-- MAIN CONTENT -->
+
+    <main class="main-content">
+
+        <!-- TOP BAR -->
+
+        <header class="topbar">
+
+            <button class="menu-btn" id="menuBtn">
+                ☰
+            </button>
+
+            <h1>Reports</h1>
+
+            <div class="user-profile">
+
+                <span>Admin</span>
+
+                <div class="profile-icon">
+                    A
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- CONTENT -->
+
+        <section class="content">
+
+            <div class="page-header">
+
+                <div>
+                    <h2 style="color: white;">Academic Reports</h2>
+
+                    <p >
+                        Analyse student and subject performance
+                    </p>
+                </div>
+
+                <button
+                    class="primary-btn"
+                    onclick="window.print()"
+                >
+                    🖨 Print Report
+                </button>
+
+            </div>
+
+
+            <!-- OVERVIEW -->
+
+            <div class="stats-container">
+
+                <div class="stat-card">
+
+                    <div>
+                        <p>Total Students</p>
+                        <h3 id="totalStudents">0</h3>
+                    </div>
+
+                    <span>👨‍🎓</span>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div>
+                        <p>Total Subjects</p>
+                        <h3 id="totalSubjects">0</h3>
+                    </div>
+
+                    <span>📚</span>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div>
+                        <p>Total Results</p>
+                        <h3 id="totalResults">0</h3>
+                    </div>
+
+                    <span>📝</span>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div>
+                        <p>Overall Average</p>
+                        <h3 id="overallAverage">0%</h3>
+                    </div>
+
+                    <span>📈</span>
+
+                </div>
+
+            </div>
+
+
+            <!-- PERFORMANCE -->
+
+            <div class="report-grid">
+
+                <!-- STUDENT PERFORMANCE -->
+
+                <div class="report-card">
+
+                    <div class="card-header">
+
+                        <div>
+                            <h3>Student Performance</h3>
+                            <p>Average mark per student</p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="table-wrapper">
+
+                        <table>
+
+                            <thead>
+
+                                <tr>
+                                    <th>Student</th>
+                                    <th>ID</th>
+                                    <th>Results</th>
+                                    <th>Average</th>
+                                    <th>Status</th>
+                                </tr>
+
+                            </thead>
+
+                            <tbody id="studentPerformance">
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+
+                <!-- SUBJECT PERFORMANCE -->
+
+                <div class="report-card">
+
+                    <div class="card-header">
+
+                        <div>
+                            <h3>Subject Performance</h3>
+                            <p>Average mark per subject</p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="table-wrapper">
+
+                        <table>
+
+                            <thead>
+
+                                <tr>
+                                    <th>Subject</th>
+                                    <th>Code</th>
+                                    <th>Results</th>
+                                    <th>Average</th>
+                                </tr>
+
+                            </thead>
+
+                            <tbody id="subjectPerformance">
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- GRADE DISTRIBUTION -->
+
+            <div class="report-card grade-card">
+
+                <div class="card-header">
+
+                    <div>
+
+                        <h3>Grade Distribution</h3>
+
+                        <p>
+                            Number of results in each grade
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="grade-distribution">
+
+                    <div class="grade-item">
+
+                        <span class="grade-box grade-a">
+                            A
+                        </span>
+
+                        <strong id="gradeA">
+                            0
+                        </strong>
+
+                        <small>
+                            Excellent
+                        </small>
+
+                    </div>
+
+
+                    <div class="grade-item">
+
+                        <span class="grade-box grade-b">
+                            B
+                        </span>
+
+                        <strong id="gradeB">
+                            0
+                        </strong>
+
+                        <small>
+                            Very Good
+                        </small>
+
+                    </div>
+
+
+                    <div class="grade-item">
+
+                        <span class="grade-box grade-c">
+                            C
+                        </span>
+
+                        <strong id="gradeC">
+                            0
+                        </strong>
+
+                        <small>
+                            Good
+                        </small>
+
+                    </div>
+
+
+                    <div class="grade-item">
+
+                        <span class="grade-box grade-d">
+                            D
+                        </span>
+
+                        <strong id="gradeD">
+                            0
+                        </strong>
+
+                        <small>
+                            Pass
+                        </small>
+
+                    </div>
+
+
+                    <div class="grade-item">
+
+                        <span class="grade-box grade-f">
+                            F
+                        </span>
+
+                        <strong id="gradeF">
+                            0
+                        </strong>
+
+                        <small>
+                            Fail
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- FOOTER -->
+
+        <footer>
+
+            <p style="color: white;">
+                © 2026 Samuel High. All rights reserved.
+            </p>
+
+        </footer>
+
+    </main>
+
+
+    <script src="js/reports.js"></script>
+
+</body>
+
+</html>

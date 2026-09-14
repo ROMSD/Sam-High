@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Settings</title>
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/settings.css">
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+
+<aside class="sidebar" id="sidebar">
+        
+        <div class="sidebar-header">
+            <div class="logo">SH</div>
+
+            <div>
+                <h2>Settings</h2>
+                <p>Management System</p>
+            </div>
+        </div>
+
+
+        <nav class="sidebar-nav">
+
+            <a href="index.html" class="nav-link">
+                <span>▦</span>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="students.html" class="nav-link">
+                <span>👨‍🎓</span>
+                <span>Students</span>
+            </a>
+
+            <a href="subjects.html" class="nav-link">
+                <span>📚</span>
+                <span>Subjects</span>
+            </a>
+
+            <a href="results.html" class="nav-link">
+                <span>📝</span>
+                <span>Results</span>
+            </a>
+
+            <a href="reports.html" class="nav-link">
+                <span>📊</span>
+                <span>Reports</span>
+            </a>
+
+            <div class="nav-divider"></div>
+
+            <a href="settings.html" class="nav-link active">
+                <span>⚙</span>
+                <span>Settings</span>
+            </a>
+
+            <a href="#" class="nav-link logout" onclick="logout()">
+                <span>↪</span>
+                <span>Logout</span>
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-footer">
+            <p>Samuel High</p>
+        </div>
+
+    </aside>
+
+    <!-- MAIN -->
+
+    <main class="main-content">
+
+        <!-- TOPBAR -->
+
+        <header class="topbar">
+
+            <button class="menu-btn" id="menuBtn">
+                ☰
+            </button>
+
+            <h1>Settings</h1>
+
+            <div class="user-profile">
+
+                <span id="topUserName">
+                    Admin
+                </span>
+
+                <div
+                    class="profile-icon"
+                    id="topProfileIcon"
+                >
+                    A
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- CONTENT -->
+
+        <section class="content">
+
+            <div class="page-header">
+
+                <div>
+
+                    <h2>System Settings</h2>
+
+                    <p>
+                        Manage your account and system data
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="settings-grid">
+
+
+                <!-- PROFILE -->
+
+                <div class="settings-card">
+
+                    <div class="card-title">
+
+                        <h3>Profile Information</h3>
+
+                        <p>
+                            Update your administrator details
+                        </p>
+
+                    </div>
+
+
+                    <form id="profileForm">
+
+                        <div class="form-group">
+
+                            <label for="profileName">
+                                Full Name
+                            </label>
+
+                            <input
+                                type="text"
+                                id="profileName"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="profileEmail">
+                                Email Address
+                            </label>
+
+                            <input
+                                type="email"
+                                id="profileEmail"
+                                required
+                            >
+
+                        </div>
+
+
+                        <button
+                            type="submit"
+                            class="primary-btn"
+                        >
+                            Save Changes
+                        </button>
+
+                    </form>
+
+                    <p
+                        id="profileMessage"
+                        class="message"
+                    ></p>
+
+                </div>
+
+
+                <!-- CHANGE PASSWORD -->
+
+                <div class="settings-card">
+
+                    <div class="card-title">
+
+                        <h3>Change Password</h3>
+
+                        <p>
+                            Update your account password
+                        </p>
+
+                    </div>
+
+
+                    <form id="passwordForm">
+
+                        <div class="form-group">
+
+                            <label for="currentPassword">
+                                Current Password
+                            </label>
+
+                            <input
+                                type="password"
+                                id="currentPassword"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="newPassword">
+                                New Password
+                            </label>
+
+                            <input
+                                type="password"
+                                id="newPassword"
+                                minlength="6"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="confirmNewPassword">
+                                Confirm New Password
+                            </label>
+
+                            <input
+                                type="password"
+                                id="confirmNewPassword"
+                                minlength="6"
+                                required
+                            >
+
+                        </div>
+
+
+                        <button
+                            type="submit"
+                            class="primary-btn"
+                        >
+                            Change Password
+                        </button>
+
+                    </form>
+
+                    <p
+                        id="passwordMessage"
+                        class="message"
+                    ></p>
+
+                </div>
+
+
+                <!-- DATA MANAGEMENT -->
+
+                <div class="settings-card">
+
+                    <div class="card-title">
+
+                        <h3>Data Management</h3>
+
+                        <p>
+                            Manage application data stored in this browser
+                        </p>
+
+                    </div>
+
+
+                    <div class="data-actions">
+
+                        <div class="data-action">
+
+                            <div>
+
+                                <strong>
+                                    Clear Results
+                                </strong>
+
+                                <p>
+                                    Delete all student results
+                                </p>
+
+                            </div>
+
+                            <button
+                                class="danger-btn"
+                                onclick="clearResults()"
+                            >
+                                Clear
+                            </button>
+
+                        </div>
+
+
+                        <div class="data-action">
+
+                            <div>
+
+                                <strong>
+                                    Clear Students
+                                </strong>
+
+                                <p>
+                                    Delete all students
+                                </p>
+
+                            </div>
+
+                            <button
+                                class="danger-btn"
+                                onclick="clearStudents()"
+                            >
+                                Clear
+                            </button>
+
+                        </div>
+
+
+                        <div class="data-action">
+
+                            <div>
+
+                                <strong>
+                                    Clear Subjects
+                                </strong>
+
+                                <p>
+                                    Delete all subjects
+                                </p>
+
+                            </div>
+
+                            <button
+                                class="danger-btn"
+                                onclick="clearSubjects()"
+                            >
+                                Clear
+                            </button>
+
+                        </div>
+
+
+                        <div class="data-action">
+
+                            <div>
+
+                                <strong>
+                                    Reset Application
+                                </strong>
+
+                                <p>
+                                    Delete all application data
+                                </p>
+
+                            </div>
+
+                            <button
+                                class="danger-btn"
+                                onclick="resetApplication()"
+                            >
+                                Reset
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- SYSTEM INFORMATION -->
+
+                <div class="settings-card">
+
+                    <div class="card-title">
+
+                        <h3>System Information</h3>
+
+                        <p>
+                            Application information
+                        </p>
+
+                    </div>
+
+
+                    <div class="system-info">
+
+                        <div>
+                            <span>Application</span>
+                            <strong>ResultSys</strong>
+                        </div>
+
+                        <div>
+                            <span>Version</span>
+                            <strong>1.0.0</strong>
+                        </div>
+
+                        <div>
+                            <span>Storage</span>
+                            <strong>Browser Local Storage</strong>
+                        </div>
+
+                        <div>
+                            <span>Environment</span>
+                            <strong>Frontend Prototype</strong>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- FOOTER -->
+
+        <footer>
+
+            <p>
+                © 2026 Samuel High. All rights reserved.
+            </p>
+
+        </footer>
+
+    </main>
+
+
+    <script src="js/settings.js"></script>
+
+</body>
+
+</html>
