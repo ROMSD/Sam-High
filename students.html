@@ -1,0 +1,612 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Students | ResultSys</title>
+
+    <link
+        rel="stylesheet"
+        href="css/dashboard.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/students.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         SIDEBAR
+    ========================== -->
+
+    <aside
+        class="sidebar"
+        id="sidebar"
+    >
+
+        <div class="sidebar-header">
+
+            <div class="logo">
+                SH
+            </div>
+
+            <div>
+
+                <h2>Students</h2>
+
+                <p>
+                    Management System
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <nav class="sidebar-nav">
+
+            <a
+                href="index.html"
+                class="nav-link"
+            >
+                <span>▦</span>
+                <span>Dashboard</span>
+            </a>
+
+
+            <a
+                href="students.html"
+                class="nav-link active"
+            >
+                <span>👨‍🎓</span>
+                <span>Students</span>
+            </a>
+
+
+            <a
+                href="subjects.html"
+                class="nav-link"
+            >
+                <span>📚</span>
+                <span>Subjects</span>
+            </a>
+
+
+            <a
+                href="results.html"
+                class="nav-link"
+            >
+                <span>📝</span>
+                <span>Results</span>
+            </a>
+
+
+            <a
+                href="reports.html"
+                class="nav-link"
+            >
+                <span>📊</span>
+                <span>Reports</span>
+            </a>
+
+
+            <div class="nav-divider"></div>
+
+
+            <a
+                href="settings.html"
+                class="nav-link"
+            >
+                <span>⚙</span>
+                <span>Settings</span>
+            </a>
+
+
+            <a
+                href="#"
+                class="nav-link logout"
+                onclick="logout()"
+            >
+                <span>↪</span>
+                <span>Logout</span>
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-footer">
+
+            <p>
+                Student Results System
+            </p>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- =========================
+         MAIN CONTAINER
+    ========================== -->
+
+    <div class="main-container">
+
+
+        <!-- =========================
+             TOPBAR
+        ========================== -->
+
+        <header class="topbar">
+
+
+            <button
+                class="menu-btn"
+                id="menuBtn"
+            >
+                ☰
+            </button>
+
+
+            <div class="page-title">
+
+                <h1>
+                    Students
+                </h1>
+
+                <p>
+                    Manage and organize student records
+                </p>
+
+            </div>
+
+
+            <div class="user-area">
+
+                <div class="user-profile">
+
+                    <div class="avatar">
+                        SD
+                    </div>
+
+
+                    <div class="user-details">
+
+                        <strong>
+                            Samuel Dhlamini
+                        </strong>
+
+                        <span>
+                            Administrator
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- =========================
+             MAIN CONTENT
+        ========================== -->
+
+        <main class="content">
+
+
+            <!-- STUDENT HEADER -->
+
+            <section class="students-header">
+
+                <div>
+
+                    <h2 style="color: white;">
+                        Student Management
+                    </h2>
+
+                    <p style="color: white;">
+                        Add, edit and manage student information.
+                    </p>
+
+                </div>
+
+
+                <button
+                    class="add-student-btn"
+                    id="openModalBtn"
+                >
+                    + Add Student
+                </button>
+
+            </section>
+
+
+
+            <!-- =========================
+                 SEARCH
+            ========================== -->
+
+            <section class="students-controls">
+
+                <div class="search-box">
+
+                    <span>
+                        ⌕
+                    </span>
+
+                    <input
+                        type="text"
+                        id="searchInput"
+                        placeholder="Search by name or student ID..."
+                    >
+
+                </div>
+
+
+                <p id="studentCount">
+                    0 Students
+                </p>
+
+            </section>
+
+
+
+            <!-- =========================
+                 STUDENTS TABLE
+            ========================== -->
+
+            <section class="students-table-container">
+
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                Student
+                            </th>
+
+                            <th>
+                                Student ID
+                            </th>
+
+                            <th>
+                                Class
+                            </th>
+
+                            <th>
+                                Gender
+                            </th>
+
+                            <th>
+                                Actions
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="studentsTableBody">
+
+                        <!-- JavaScript inserts students here -->
+
+                    </tbody>
+
+                </table>
+
+
+
+                <!-- =========================
+                     EMPTY STATE
+                ========================== -->
+
+                <div
+                    class="empty-state"
+                    id="emptyState"
+                >
+
+                    <div class="empty-icon">
+                        👨‍🎓
+                    </div>
+
+
+                    <h3>
+                        No Students Yet
+                    </h3>
+
+
+                    <p>
+                        Start by adding your first student.
+                    </p>
+
+
+                    <button
+                        class="add-student-btn"
+                        id="emptyAddBtn"
+                        style="background-color: gold;"
+                    >
+                        + Add Student
+                    </button>
+
+                </div>
+
+
+            </section>
+
+
+        </main>
+
+
+
+        <!-- =========================
+             FOOTER
+        ========================== -->
+
+        <footer class="footer">
+
+            <p>
+                © 2026 Samuel High. All rights reserved.
+            </p>
+
+        </footer>
+
+
+    </div>
+
+
+
+    <!-- =========================
+         ADD / EDIT STUDENT MODAL
+    ========================== -->
+
+    <div
+        class="modal"
+        id="studentModal"
+    >
+
+        <div class="modal-content">
+
+
+            <!-- MODAL HEADER -->
+
+            <div class="modal-header">
+
+                <div>
+
+                    <h2 id="modalTitle">
+                        Add Student
+                    </h2>
+
+                    <p>
+                        Enter the student's information below.
+                    </p>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="close-btn"
+                    id="closeModalBtn"
+                    aria-label="Close modal"
+                >
+                    &times;
+                </button>
+
+            </div>
+
+
+
+            <!-- =========================
+                 STUDENT FORM
+            ========================== -->
+
+            <form id="studentForm">
+
+
+                <!-- FULL NAME -->
+
+                <div class="form-group">
+
+                    <label for="studentName">
+                        Full Name
+                    </label>
+
+
+                    <input
+                        type="text"
+                        id="studentName"
+                        placeholder="Enter student's full name"
+                        required
+                    >
+
+                </div>
+
+
+
+                <!-- STUDENT ID -->
+
+                <div class="form-group">
+
+                    <label for="studentId">
+                        Student ID
+                    </label>
+
+
+                    <input
+                        type="text"
+                        id="studentId"
+                        placeholder="Enter student ID"
+                        required
+                    >
+
+                </div>
+
+
+
+                <!-- CLASS -->
+
+                <div class="form-group">
+
+                    <label for="studentClass">
+                        Class
+                    </label>
+
+
+                    <select
+                        id="studentClass"
+                        required
+                    >
+
+                        <option value="">
+                            Select class
+                        </option>
+
+
+                        <option value="Form 1A">
+                            Form 1A
+                        </option>
+
+                        <option value="Form 1B">
+                            Form 1B
+                        </option>
+
+
+                        <option value="Form 2A">
+                            Form 2A
+                        </option>
+
+                        <option value="Form 2B">
+                            Form 2B
+                        </option>
+
+
+                        <option value="Form 3A">
+                            Form 3A
+                        </option>
+
+                        <option value="Form 3B">
+                            Form 3B
+                        </option>
+
+
+                        <option value="Form 4A">
+                            Form 4A
+                        </option>
+
+                        <option value="Form 4B">
+                            Form 4B
+                        </option>
+
+
+                        <option value="Form 5">
+                            Form 5
+                        </option>
+
+                        <option value="Form 6">
+                            Form 6
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <!-- GENDER -->
+
+                <div class="form-group">
+
+                    <label for="studentGender">
+                        Gender
+                    </label>
+
+
+                    <select
+                        id="studentGender"
+                        required
+                    >
+
+                        <option value="">
+                            Select gender
+                        </option>
+
+
+                        <option value="Male">
+                            Male
+                        </option>
+
+
+                        <option value="Female">
+                            Female
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <!-- FORM BUTTONS -->
+
+                <div class="form-actions">
+
+
+                    <button
+                        type="button"
+                        id="cancelBtn"
+                    >
+                        Cancel
+                    </button>
+
+
+                    <button
+                        type="submit"
+                    >
+                        Save Student
+                    </button>
+
+
+                </div>
+
+
+            </form>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script src="js/students.js"></script>
+
+
+</body>
+
+</html>
+```
